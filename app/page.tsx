@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight, HeartHandshake, RotateCcw } from "lucide-react";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight, HeartHandshake, Lightbulb, RotateCcw } from "lucide-react";
 import ResultView from "@/components/ResultView";
 import {
   DIAGNOSTIC,
@@ -108,14 +109,22 @@ export default function Home() {
           <div className="text-xs font-bold tracking-wide text-indigo-600">{DIAGNOSTIC.courseTitle}</div>
           <h1 className="mt-1 text-2xl font-extrabold tracking-tight sm:text-3xl">{DIAGNOSTIC.title}</h1>
         </div>
-        {result && (
-          <button
-            onClick={restart}
-            className="no-print flex shrink-0 items-center gap-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-bold text-slate-600 hover:bg-slate-50"
+        <div className="no-print flex shrink-0 flex-col items-end gap-2 sm:flex-row">
+          <Link
+            href="/grow"
+            className="flex items-center gap-1 rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-sm font-bold text-indigo-700 hover:bg-indigo-100"
           >
-            <RotateCcw className="h-4 w-4" /> 다시 하기
-          </button>
-        )}
+            <Lightbulb className="h-4 w-4" /> 기르는 방법
+          </Link>
+          {result && (
+            <button
+              onClick={restart}
+              className="flex items-center gap-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-bold text-slate-600 hover:bg-slate-50"
+            >
+              <RotateCcw className="h-4 w-4" /> 다시 하기
+            </button>
+          )}
+        </div>
       </header>
 
       {result ? (
