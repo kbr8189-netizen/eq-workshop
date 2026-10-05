@@ -143,7 +143,7 @@ export default function Dashboard() {
       </header>
 
       <div className="mt-5 flex flex-wrap items-center gap-2">
-        <div className="flex gap-1 rounded-xl bg-slate-200/70 p-1">
+        <div className="flex gap-2">
           {(
             [
               ["stats", "진단 결과"],
@@ -153,7 +153,11 @@ export default function Dashboard() {
             <button
               key={id}
               onClick={() => setView(id)}
-              className={`rounded-lg px-4 py-2 text-sm font-bold ${view === id ? "bg-white text-indigo-700 shadow-sm" : "text-slate-600"}`}
+              className={`rounded-xl border-2 px-4 py-2 text-sm font-bold shadow-sm transition ${
+                view === id
+                  ? "border-indigo-600 bg-indigo-600 text-white"
+                  : "border-slate-300 bg-white text-slate-700 hover:border-indigo-400 hover:text-indigo-700"
+              }`}
             >
               {label}
             </button>

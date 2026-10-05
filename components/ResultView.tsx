@@ -43,13 +43,15 @@ export default function ResultView({
 
   return (
     <div>
-      <div className="no-print mb-5 flex gap-1 rounded-xl bg-slate-200/70 p-1">
+      <div className="no-print mb-5 grid grid-cols-3 gap-2 sm:gap-3">
         {TABS.map((t) => (
           <button
             key={t.id}
             onClick={() => setTab(t.id)}
-            className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg px-2 py-2.5 text-sm font-bold transition ${
-              tab === t.id ? "bg-white text-indigo-700 shadow-sm" : "text-slate-600 hover:text-slate-900"
+            className={`flex items-center justify-center gap-1.5 rounded-xl border-2 px-2 py-3 text-sm font-bold shadow-sm transition ${
+              tab === t.id
+                ? "border-indigo-600 bg-indigo-600 text-white"
+                : "border-slate-300 bg-white text-slate-700 hover:border-indigo-400 hover:text-indigo-700"
             }`}
           >
             <t.icon className="h-4 w-4" />
